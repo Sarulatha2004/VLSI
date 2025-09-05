@@ -1,0 +1,31 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x628e7cdef540 .scope module, "real_val" "real_val" 2 1;
+ .timescale 0 0;
+v0x628e7cdef6d0_0 .var/real "delta", 0 0;
+    .scope S_0x628e7cdef540;
+T_0 ;
+    %vpi_call 2 4 "$monitor", "time=%0t : delta=%.2f : delta=%0d", $time, v0x628e7cdef6d0_0, v0x628e7cdef6d0_0 {0 0 0};
+    %pushi/real 1250000000, 4101; load=4.00000e+10
+    %store/real v0x628e7cdef6d0_0;
+    %delay 10, 0;
+    %pushi/real 1170378588, 4067; load=2.18000
+    %pushi/real 671089, 4045; load=2.18000
+    %add/wr;
+    %store/real v0x628e7cdef6d0_0;
+    %delay 10, 0;
+    %vpi_call 2 7 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "real_val.v";
