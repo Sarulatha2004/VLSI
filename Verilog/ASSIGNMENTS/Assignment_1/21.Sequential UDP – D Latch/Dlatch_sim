@@ -1,0 +1,74 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x60ca623ceb50 .scope module, "tb_dlatch_udp" "tb_dlatch_udp" 2 1;
+ .timescale 0 0;
+UDP_Dlatch_udp .udp/sequ "Dlatch_udp", 2, 2
+ ,"?100"
+ ,"?111"
+ ,"00?0"
+ ,"10?1";
+L_0x60ca6241ab00 .udp UDP_Dlatch_udp, v0x60ca623cece0_0, v0x60ca6241a9a0_0;
+v0x60ca623cece0_0 .var "clk", 0 0;
+v0x60ca6241a9a0_0 .var "d", 0 0;
+v0x60ca6241aa60_0 .net "q", 0 0, L_0x60ca6241ab00;  1 drivers
+    .scope S_0x60ca623ceb50;
+T_0 ;
+    %vpi_call 2 6 "$dumpfile", "Dlatch_wave.vcd" {0 0 0};
+    %vpi_call 2 7 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x60ca623ceb50 {0 0 0};
+    %vpi_call 2 8 "$display", " Time  :  clk  d : q  " {0 0 0};
+    %vpi_call 2 9 "$monitor", " %0t   :   %b  %b: %b", $time, v0x60ca623cece0_0, v0x60ca6241a9a0_0, v0x60ca6241aa60_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x60ca623cece0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x60ca6241a9a0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x60ca623cece0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x60ca6241a9a0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x60ca623cece0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x60ca6241a9a0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x60ca623cece0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x60ca6241a9a0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x60ca623cece0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x60ca6241a9a0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x60ca623cece0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x60ca6241a9a0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x60ca623cece0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x60ca6241a9a0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x60ca623cece0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x60ca6241a9a0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 18 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "tb_dlatch.v";
