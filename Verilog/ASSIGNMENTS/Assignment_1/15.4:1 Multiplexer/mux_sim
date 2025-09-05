@@ -1,0 +1,90 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x62b1ebb85b90 .scope module, "tb_mux" "tb_mux" 2 1;
+ .timescale 0 0;
+v0x62b1ebbb0790_0 .var "i0", 0 0;
+v0x62b1ebbb0850_0 .var "i1", 0 0;
+v0x62b1ebbb0920_0 .var "i2", 0 0;
+v0x62b1ebbb0a20_0 .var "i3", 0 0;
+v0x62b1ebbb0af0_0 .var "s0", 0 0;
+v0x62b1ebbb0b90_0 .var "s1", 0 0;
+v0x62b1ebbb0c60_0 .net "y", 0 0, L_0x62b1ebbb1390;  1 drivers
+S_0x62b1ebb5e490 .scope module, "uut" "mux4x1" 2 5, 3 1 0, S_0x62b1ebb85b90;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "i0";
+    .port_info 1 /INPUT 1 "i1";
+    .port_info 2 /INPUT 1 "i2";
+    .port_info 3 /INPUT 1 "i3";
+    .port_info 4 /INPUT 1 "s1";
+    .port_info 5 /INPUT 1 "s0";
+    .port_info 6 /OUTPUT 1 "y";
+L_0x62b1ebbb0d30 .functor NOT 1, v0x62b1ebbb0b90_0, C4<0>, C4<0>, C4<0>;
+L_0x62b1ebbb0e20 .functor NOT 1, v0x62b1ebbb0af0_0, C4<0>, C4<0>, C4<0>;
+L_0x62b1ebbb0ee0 .functor AND 1, L_0x62b1ebbb0d30, L_0x62b1ebbb0e20, v0x62b1ebbb0790_0, C4<1>;
+L_0x62b1ebbb1070 .functor AND 1, L_0x62b1ebbb0d30, v0x62b1ebbb0af0_0, v0x62b1ebbb0850_0, C4<1>;
+L_0x62b1ebbb1160 .functor AND 1, v0x62b1ebbb0b90_0, L_0x62b1ebbb0e20, v0x62b1ebbb0920_0, C4<1>;
+L_0x62b1ebbb1220 .functor AND 1, v0x62b1ebbb0b90_0, v0x62b1ebbb0af0_0, v0x62b1ebbb0a20_0, C4<1>;
+L_0x62b1ebbb1390 .functor OR 1, L_0x62b1ebbb0ee0, L_0x62b1ebbb1070, L_0x62b1ebbb1160, L_0x62b1ebbb1220;
+v0x62b1ebb5e720_0 .net "a", 0 0, L_0x62b1ebbb0ee0;  1 drivers
+v0x62b1ebbafd80_0 .net "b", 0 0, L_0x62b1ebbb1070;  1 drivers
+v0x62b1ebbafe40_0 .net "c", 0 0, L_0x62b1ebbb1160;  1 drivers
+v0x62b1ebbafee0_0 .net "d", 0 0, L_0x62b1ebbb1220;  1 drivers
+v0x62b1ebbaffa0_0 .net "i0", 0 0, v0x62b1ebbb0790_0;  1 drivers
+v0x62b1ebbb00b0_0 .net "i1", 0 0, v0x62b1ebbb0850_0;  1 drivers
+v0x62b1ebbb0170_0 .net "i2", 0 0, v0x62b1ebbb0920_0;  1 drivers
+v0x62b1ebbb0230_0 .net "i3", 0 0, v0x62b1ebbb0a20_0;  1 drivers
+v0x62b1ebbb02f0_0 .net "ns0", 0 0, L_0x62b1ebbb0e20;  1 drivers
+v0x62b1ebbb03b0_0 .net "ns1", 0 0, L_0x62b1ebbb0d30;  1 drivers
+v0x62b1ebbb0470_0 .net "s0", 0 0, v0x62b1ebbb0af0_0;  1 drivers
+v0x62b1ebbb0530_0 .net "s1", 0 0, v0x62b1ebbb0b90_0;  1 drivers
+v0x62b1ebbb05f0_0 .net "y", 0 0, L_0x62b1ebbb1390;  alias, 1 drivers
+    .scope S_0x62b1ebb85b90;
+T_0 ;
+    %vpi_call 2 7 "$dumpfile", "mux_wave.vcd" {0 0 0};
+    %vpi_call 2 8 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x62b1ebb85b90 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62b1ebbb0790_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62b1ebbb0850_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62b1ebbb0920_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62b1ebbb0a20_0, 0, 1;
+    %vpi_call 2 13 "$display", "time | s1 s0 | i0 i1 i2 i3 | y " {0 0 0};
+    %vpi_call 2 14 "$monitor", "%4t | %b %b | %b %b %b %b | %b", $time, v0x62b1ebbb0b90_0, v0x62b1ebbb0af0_0, v0x62b1ebbb0790_0, v0x62b1ebbb0850_0, v0x62b1ebbb0920_0, v0x62b1ebbb0a20_0, v0x62b1ebbb0c60_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62b1ebbb0b90_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62b1ebbb0af0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62b1ebbb0b90_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62b1ebbb0af0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62b1ebbb0b90_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62b1ebbb0af0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62b1ebbb0b90_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62b1ebbb0af0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 19 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_mux.v";
+    "mux.v";
