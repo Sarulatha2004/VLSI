@@ -1,0 +1,47 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x60f8e79a3b40 .scope module, "tb_not" "tb_not" 2 1;
+ .timescale 0 0;
+v0x60f8e79c8a50_0 .var "a", 0 0;
+RS_0x7afe4f692078 .resolv tri, L_0x60f8e79c8d30, L_0x60f8e79c8e90;
+v0x60f8e79c8b20_0 .net8 "o", 0 0, RS_0x7afe4f692078;  2 drivers, strength-aware
+S_0x60f8e797e4f0 .scope module, "uut" "not_gate" 2 7, 3 1 0, S_0x60f8e79a3b40;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /OUTPUT 1 "o";
+L_0x60f8e79c8c90 .functor BUFT 1, C8<771>, C4<0>, C4<0>, C4<0>;
+L_0x60f8e79c8d30 .functor PMOS 1, L_0x60f8e79c8c90, v0x60f8e79c8a50_0, C4<0>, C4<0>;
+L_0x60f8e79c8bf0 .functor BUFT 1, C8<770>, C4<0>, C4<0>, C4<0>;
+L_0x60f8e79c8e90 .functor NMOS 1, L_0x60f8e79c8bf0, v0x60f8e79c8a50_0, C4<0>, C4<0>;
+v0x60f8e797e6d0_0 .net "a", 0 0, v0x60f8e79c8a50_0;  1 drivers
+v0x60f8e79c87d0_0 .net8 "gnd", 0 0, L_0x60f8e79c8bf0;  1 drivers, strength-aware
+v0x60f8e79c8890_0 .net8 "o", 0 0, RS_0x7afe4f692078;  alias, 2 drivers, strength-aware
+v0x60f8e79c8930_0 .net8 "vcc", 0 0, L_0x60f8e79c8c90;  1 drivers, strength-aware
+    .scope S_0x60f8e79a3b40;
+T_0 ;
+    %vpi_call 2 10 "$dumpfile", "not_wave.vcd" {0 0 0};
+    %vpi_call 2 11 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x60f8e79a3b40 {0 0 0};
+    %vpi_call 2 13 "$display", "time | a b | o" {0 0 0};
+    %vpi_call 2 14 "$monitor", "%2t | %b  | %b", $time, v0x60f8e79c8a50_0, v0x60f8e79c8b20_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x60f8e79c8a50_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x60f8e79c8a50_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 18 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_cmos_inv.v";
+    "cmos_inv.v";
