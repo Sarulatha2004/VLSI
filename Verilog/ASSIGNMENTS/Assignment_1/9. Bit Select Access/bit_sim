@@ -1,0 +1,32 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x6254c3b16560 .scope module, "bit_sel" "bit_sel" 2 1;
+ .timescale 0 0;
+v0x6254c3b166f0_0 .var "data", 7 0;
+    .scope S_0x6254c3b16560;
+T_0 ;
+    %pushi/vec4 146, 0, 8;
+    %store/vec4 v0x6254c3b166f0_0, 0, 8;
+    %vpi_call 2 5 "$display", "time=%0t : data=%b : data[3]=%b", $time, v0x6254c3b166f0_0, &PV<v0x6254c3b166f0_0, 3, 1> {0 0 0};
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 3, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0x6254c3b166f0_0, 4, 1;
+    %vpi_call 2 7 "$display", "time=%0t  :  data=%b", $time, v0x6254c3b166f0_0 {0 0 0};
+    %delay 10, 0;
+    %vpi_call 2 8 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "bit_sel.v";
