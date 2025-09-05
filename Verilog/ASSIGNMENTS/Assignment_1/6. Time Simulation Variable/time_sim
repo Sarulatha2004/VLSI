@@ -1,0 +1,32 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x60daecaa6570 .scope module, "time_sim" "time_sim" 2 1;
+ .timescale 0 0;
+v0x60daecaa6700_0 .var "t", 63 0;
+    .scope S_0x60daecaa6570;
+T_0 ;
+    %vpi_call 2 4 "$monitor", "time=%0t : t=%t", $time, v0x60daecaa6700_0 {0 0 0};
+    %vpi_func 2 5 "$time" 64 {0 0 0};
+    %store/vec4 v0x60daecaa6700_0, 0, 64;
+    %delay 10, 0;
+    %vpi_func 2 6 "$time" 64 {0 0 0};
+    %store/vec4 v0x60daecaa6700_0, 0, 64;
+    %delay 20, 0;
+    %vpi_func 2 7 "$time" 64 {0 0 0};
+    %store/vec4 v0x60daecaa6700_0, 0, 64;
+    %delay 10, 0;
+    %vpi_call 2 8 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "time.v";
