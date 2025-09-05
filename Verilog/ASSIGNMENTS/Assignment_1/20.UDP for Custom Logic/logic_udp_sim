@@ -1,0 +1,95 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x5f0216b29540 .scope module, "tb_logic_udp" "tb_logic_udp" 2 1;
+ .timescale 0 0;
+UDP_logic_udp .udp/comb "logic_udp", 3
+ ,"0000"
+ ,"0010"
+ ,"0101"
+ ,"0110"
+ ,"1001"
+ ,"1011"
+ ,"1101"
+ ,"1111";
+L_0x5f0216b77950 .udp UDP_logic_udp, v0x5f0216b77730_0, v0x5f0216b777f0_0, v0x5f0216b77890_0;
+v0x5f0216b296d0_0 .net "f", 0 0, L_0x5f0216b77950;  1 drivers
+v0x5f0216b77730_0 .var "x", 0 0;
+v0x5f0216b777f0_0 .var "y", 0 0;
+v0x5f0216b77890_0 .var "z", 0 0;
+    .scope S_0x5f0216b29540;
+T_0 ;
+    %vpi_call 2 7 "$dumpfile", "logic_udp_wave.vcd" {0 0 0};
+    %vpi_call 2 8 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x5f0216b29540 {0 0 0};
+    %vpi_call 2 9 "$display", " Time :  x  y  z :  f  " {0 0 0};
+    %vpi_call 2 10 "$monitor", " %0t  :  %b %b %b : %b ", $time, v0x5f0216b77730_0, v0x5f0216b777f0_0, v0x5f0216b77890_0, v0x5f0216b296d0_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f0216b77730_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f0216b777f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f0216b77890_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f0216b77730_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f0216b777f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f0216b77890_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f0216b77730_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f0216b777f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f0216b77890_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f0216b77730_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f0216b777f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f0216b77890_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f0216b77730_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f0216b777f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f0216b77890_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f0216b77730_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f0216b777f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f0216b77890_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f0216b77730_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f0216b777f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f0216b77890_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f0216b77730_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f0216b777f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f0216b77890_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 20 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "tb_logic_udp.v";
