@@ -1,0 +1,73 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x574e83ad8490 .scope module, "full_add_tb" "full_add_tb" 2 9;
+ .timescale 0 0;
+P_0x574e83ad8620 .param/l "N" 0 2 10, +C4<00000000000000000000000000001000>;
+v0x574e83b28530_0 .var "A", 7 0;
+v0x574e83b28610_0 .var "B", 7 0;
+v0x574e83b286e0_0 .var "Cin", 0 0;
+v0x574e83b287e0_0 .net "Cout", 0 0, L_0x574e83b292a0;  1 drivers
+v0x574e83b288b0_0 .net "Sum", 7 0, L_0x574e83b28bd0;  1 drivers
+S_0x574e83ad86c0 .scope module, "uut" "full_adder" 2 16, 2 1 0, S_0x574e83ad8490;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "A";
+    .port_info 1 /INPUT 8 "B";
+    .port_info 2 /INPUT 1 "Cin";
+    .port_info 3 /OUTPUT 8 "Sum";
+    .port_info 4 /OUTPUT 1 "Cout";
+P_0x574e83ad88a0 .param/l "N" 0 2 1, +C4<00000000000000000000000000001000>;
+L_0x574e83b28950 .functor XOR 8, v0x574e83b28530_0, v0x574e83b28610_0, C4<00000000>, C4<00000000>;
+L_0x574e83b28bd0 .functor XOR 8, L_0x574e83b28950, L_0x574e83b28a90, C4<00000000>, C4<00000000>;
+L_0x574e83b28d30 .functor AND 8, v0x574e83b28530_0, v0x574e83b28610_0, C4<11111111>, C4<11111111>;
+L_0x574e83b28e90 .functor AND 8, v0x574e83b28610_0, L_0x574e83b28da0, C4<11111111>, C4<11111111>;
+L_0x574e83b28f30 .functor OR 8, L_0x574e83b28d30, L_0x574e83b28e90, C4<00000000>, C4<00000000>;
+L_0x574e83b290e0 .functor AND 8, L_0x574e83b29040, v0x574e83b28530_0, C4<11111111>, C4<11111111>;
+L_0x574e83b291e0 .functor OR 8, L_0x574e83b28f30, L_0x574e83b290e0, C4<00000000>, C4<00000000>;
+v0x574e83b12610_0 .net "A", 7 0, v0x574e83b28530_0;  1 drivers
+v0x574e83b27560_0 .net "B", 7 0, v0x574e83b28610_0;  1 drivers
+v0x574e83b27640_0 .net "Cin", 0 0, v0x574e83b286e0_0;  1 drivers
+v0x574e83b27710_0 .net "Cout", 0 0, L_0x574e83b292a0;  alias, 1 drivers
+v0x574e83b277d0_0 .net "Sum", 7 0, L_0x574e83b28bd0;  alias, 1 drivers
+v0x574e83b27900_0 .net *"_ivl_0", 7 0, L_0x574e83b28950;  1 drivers
+v0x574e83b279e0_0 .net *"_ivl_10", 7 0, L_0x574e83b28da0;  1 drivers
+L_0x77eca3329060 .functor BUFT 1, C4<0000000>, C4<0>, C4<0>, C4<0>;
+v0x574e83b27ac0_0 .net *"_ivl_13", 6 0, L_0x77eca3329060;  1 drivers
+v0x574e83b27ba0_0 .net *"_ivl_14", 7 0, L_0x574e83b28e90;  1 drivers
+v0x574e83b27c80_0 .net *"_ivl_16", 7 0, L_0x574e83b28f30;  1 drivers
+v0x574e83b27d60_0 .net *"_ivl_18", 7 0, L_0x574e83b29040;  1 drivers
+v0x574e83b27e40_0 .net *"_ivl_2", 7 0, L_0x574e83b28a90;  1 drivers
+L_0x77eca33290a8 .functor BUFT 1, C4<0000000>, C4<0>, C4<0>, C4<0>;
+v0x574e83b27f20_0 .net *"_ivl_21", 6 0, L_0x77eca33290a8;  1 drivers
+v0x574e83b28000_0 .net *"_ivl_22", 7 0, L_0x574e83b290e0;  1 drivers
+v0x574e83b280e0_0 .net *"_ivl_24", 7 0, L_0x574e83b291e0;  1 drivers
+L_0x77eca3329018 .functor BUFT 1, C4<0000000>, C4<0>, C4<0>, C4<0>;
+v0x574e83b281c0_0 .net *"_ivl_5", 6 0, L_0x77eca3329018;  1 drivers
+v0x574e83b282a0_0 .net *"_ivl_8", 7 0, L_0x574e83b28d30;  1 drivers
+L_0x574e83b28a90 .concat [ 1 7 0 0], v0x574e83b286e0_0, L_0x77eca3329018;
+L_0x574e83b28da0 .concat [ 1 7 0 0], v0x574e83b286e0_0, L_0x77eca3329060;
+L_0x574e83b29040 .concat [ 1 7 0 0], v0x574e83b286e0_0, L_0x77eca33290a8;
+L_0x574e83b292a0 .part L_0x574e83b291e0, 0, 1;
+    .scope S_0x574e83ad8490;
+T_0 ;
+    %pushi/vec4 20, 0, 8;
+    %store/vec4 v0x574e83b28530_0, 0, 8;
+    %pushi/vec4 40, 0, 8;
+    %store/vec4 v0x574e83b28610_0, 0, 8;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x574e83b286e0_0, 0, 1;
+    %vpi_call 2 19 "$strobe", "A=%b(%d)   | B=%b(%d) | Cin=%b | Sum=%b(%d)  |Cout=%b", v0x574e83b28530_0, v0x574e83b28530_0, v0x574e83b28610_0, v0x574e83b28610_0, v0x574e83b286e0_0, v0x574e83b288b0_0, v0x574e83b288b0_0, v0x574e83b287e0_0 {0 0 0};
+    %vpi_call 2 20 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Full_adder.v";
