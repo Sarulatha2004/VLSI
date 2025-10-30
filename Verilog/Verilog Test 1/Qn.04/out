@@ -1,0 +1,91 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x589d80554fb0 .scope module, "gates_tb" "gates_tb" 2 19;
+ .timescale 0 0;
+v0x589d8056b010_0 .var "A", 0 0;
+v0x589d8056b0d0_0 .var "B", 0 0;
+v0x589d8056b1a0_0 .var "C", 0 0;
+v0x589d8056b2a0_0 .var "D", 0 0;
+v0x589d8056b370_0 .var "E", 0 0;
+v0x589d8056b410_0 .net "Y", 0 0, L_0x589d8056c5a0;  1 drivers
+S_0x589d80555140 .scope module, "uut" "gates" 2 22, 2 1 0, S_0x589d80554fb0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /INPUT 1 "D";
+    .port_info 4 /INPUT 1 "E";
+    .port_info 5 /OUTPUT 1 "Y";
+L_0x589d8056b4e0/d .functor NOT 1, v0x589d8056b0d0_0, C4<0>, C4<0>, C4<0>;
+L_0x589d8056b4e0 .delay 1 (4,4,4) L_0x589d8056b4e0/d;
+L_0x589d8056b670/d .functor NOT 1, v0x589d8056b1a0_0, C4<0>, C4<0>, C4<0>;
+L_0x589d8056b670 .delay 1 (4,4,4) L_0x589d8056b670/d;
+L_0x589d8056b7d0/d .functor NOT 1, v0x589d8056b2a0_0, C4<0>, C4<0>, C4<0>;
+L_0x589d8056b7d0 .delay 1 (4,4,4) L_0x589d8056b7d0/d;
+L_0x589d8056b930/d .functor AND 1, L_0x589d8056b4e0, L_0x589d8056b670, C4<1>, C4<1>;
+L_0x589d8056b930 .delay 1 (3,3,3) L_0x589d8056b930/d;
+L_0x589d8056bb10/d .functor AND 1, v0x589d8056b010_0, v0x589d8056b0d0_0, C4<1>, C4<1>;
+L_0x589d8056bb10 .delay 1 (3,3,3) L_0x589d8056bb10/d;
+L_0x589d8056bc70/d .functor AND 1, L_0x589d8056b4e0, v0x589d8056b1a0_0, C4<1>, C4<1>;
+L_0x589d8056bc70 .delay 1 (3,3,3) L_0x589d8056bc70/d;
+L_0x589d8056bdc0/d .functor AND 1, v0x589d8056b010_0, L_0x589d8056b930, C4<1>, C4<1>;
+L_0x589d8056bdc0 .delay 1 (3,3,3) L_0x589d8056bdc0/d;
+L_0x589d8056bf20/d .functor AND 1, L_0x589d8056bb10, v0x589d8056b370_0, C4<1>, C4<1>;
+L_0x589d8056bf20 .delay 1 (3,3,3) L_0x589d8056bf20/d;
+L_0x589d8056c120/d .functor AND 1, L_0x589d8056b7d0, v0x589d8056b1a0_0, C4<1>, C4<1>;
+L_0x589d8056c120 .delay 1 (3,3,3) L_0x589d8056c120/d;
+L_0x589d8056c230/d .functor OR 1, L_0x589d8056bdc0, L_0x589d8056bf20, C4<0>, C4<0>;
+L_0x589d8056c230 .delay 1 (2,2,2) L_0x589d8056c230/d;
+L_0x589d8056c440/d .functor OR 1, L_0x589d8056bc70, L_0x589d8056c120, C4<0>, C4<0>;
+L_0x589d8056c440 .delay 1 (2,2,2) L_0x589d8056c440/d;
+L_0x589d8056c5a0/d .functor OR 1, L_0x589d8056c230, L_0x589d8056c440, C4<0>, C4<0>;
+L_0x589d8056c5a0 .delay 1 (2,2,2) L_0x589d8056c5a0/d;
+v0x589d80518490_0 .net "A", 0 0, v0x589d8056b010_0;  1 drivers
+v0x589d8056a320_0 .net "AND_out1", 0 0, L_0x589d8056b930;  1 drivers
+v0x589d8056a3e0_0 .net "AND_out2", 0 0, L_0x589d8056bb10;  1 drivers
+v0x589d8056a480_0 .net "AND_out3", 0 0, L_0x589d8056bc70;  1 drivers
+v0x589d8056a540_0 .net "AND_out4", 0 0, L_0x589d8056bdc0;  1 drivers
+v0x589d8056a650_0 .net "AND_out5", 0 0, L_0x589d8056bf20;  1 drivers
+v0x589d8056a710_0 .net "AND_out6", 0 0, L_0x589d8056c120;  1 drivers
+v0x589d8056a7d0_0 .net "B", 0 0, v0x589d8056b0d0_0;  1 drivers
+v0x589d8056a890_0 .net "C", 0 0, v0x589d8056b1a0_0;  1 drivers
+v0x589d8056a950_0 .net "D", 0 0, v0x589d8056b2a0_0;  1 drivers
+v0x589d8056aa10_0 .net "E", 0 0, v0x589d8056b370_0;  1 drivers
+v0x589d8056aad0_0 .net "OR_out1", 0 0, L_0x589d8056c230;  1 drivers
+v0x589d8056ab90_0 .net "OR_out2", 0 0, L_0x589d8056c440;  1 drivers
+v0x589d8056ac50_0 .net "Y", 0 0, L_0x589d8056c5a0;  alias, 1 drivers
+v0x589d8056ad10_0 .net "n_B", 0 0, L_0x589d8056b4e0;  1 drivers
+v0x589d8056add0_0 .net "n_C", 0 0, L_0x589d8056b670;  1 drivers
+v0x589d8056ae90_0 .net "n_D", 0 0, L_0x589d8056b7d0;  1 drivers
+    .scope S_0x589d80554fb0;
+T_0 ;
+    %vpi_call 2 26 "$monitor", "Time=%t | A=%b | B=%b | C=%b |D=%b | E=%b | Y=%b ", $time, v0x589d8056b010_0, v0x589d8056b0d0_0, v0x589d8056b1a0_0, v0x589d8056b2a0_0, v0x589d8056b370_0, v0x589d8056b410_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x589d8056b010_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x589d8056b0d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x589d8056b1a0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x589d8056b2a0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x589d8056b370_0, 0, 1;
+    %vpi_call 2 28 "$monitoroff" {0 0 0};
+    %delay 50, 0;
+    %vpi_call 2 29 "$monitoron" {0 0 0};
+    %delay 100, 0;
+    %vpi_call 2 31 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "gates.v";
