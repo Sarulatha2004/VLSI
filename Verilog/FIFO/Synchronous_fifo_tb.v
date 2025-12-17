@@ -1,3 +1,5 @@
+
+
 module sync_fifo_tb;
   
   reg clk,rstn;
